@@ -1021,7 +1021,7 @@ defmodule ExAdmin.Form do
   end
 
   def build_control(:text, resource, opts, model_name, field_name, ext_name) do
-    value = Map.get(resource, field_name, "") |> escape_value
+    value = Map.get(opts, :value, Map.get(resource, field_name, "")) |> escape_value
     options = opts
     |> Map.put(:class, "form-control")
     |> Map.put_new(:name, "#{model_name}[#{field_name}]")
